@@ -1,19 +1,37 @@
 body > footer {
-  @extend .sans;
+  font-family: Arial, sans-serif; // Replaces @extend .sans
   font-size: .8em;
   color: $footer-color;
   text-shadow: lighten($footer-bg, 5) 0 1px;
   background-color: $footer-bg;
-  @include background($footer-bg-front, $footer-bg-back);
+  
+  background: linear-gradient(to bottom, $footer-bg-front, $footer-bg-back); // Replaces @include background
   border-top: 1px solid $footer-border-top;
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
   margin-bottom: 3em;
-  @include border-bottom-radius(.4em);
+  
+  border-bottom-left-radius: .4em; // Replaces @include border-bottom-radius
+  border-bottom-right-radius: .4em; // Replaces @include border-bottom-radius
+
   z-index: 1;
+
   a {
-    @include link-colors($footer-link-color, $footer-link-color-hover, $visited: $footer-link-color);
+    color: $footer-link-color;
+    text-decoration: none; // Default link styles
+    transition: color 0.3s ease; // Adds transition for smooth color change
+
+    &:hover {
+      color: $footer-link-color-hover; // Hover state
+    }
+
+    &:visited {
+      color: $footer-link-color; // Visited state
+    }
   }
-  p:last-child { margin-bottom: 0; }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
 }

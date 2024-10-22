@@ -1,6 +1,11 @@
-@import "compass";
-@include global-reset;
-@include reset-html5;
+@import "reset"; // Replace Compass reset with a standard CSS reset
+
+@import "custom/colors";
+@import "custom/fonts";
+@import "custom/layout";
+@import "base";
+@import "partials";
+@import "custom/styles";
 
 @import "custom/colors";
 @import "custom/fonts";

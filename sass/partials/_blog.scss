@@ -1,6 +1,8 @@
 article {
   padding-top: 1em;
-  a { @extend .force-wrap; }
+  a { 
+    word-wrap: break-word; // Replaces .force-wrap functionality
+  }
   header {
     overflow: hidden;
     position: relative;
@@ -8,48 +10,79 @@ article {
     padding-bottom: 1em;
     margin-bottom: 1em;
     background: $img-border bottom left repeat-x;
+    
     h1 {
       margin: 0;
-      a { text-decoration: none;
-        &:hover { text-decoration: underline; } }
+      a { 
+        text-decoration: none;
+        &:hover { 
+          text-decoration: underline;
+        }
+      }
     }
+    
     p {
       font-size: .9em;
       color: $text-color-light;
       margin: 0;
       &.meta {
-        @extend .sans;
+        font-family: $sans; // Replaces .sans
         text-transform: uppercase;
-        position: absolute; top: 0;
+        position: absolute;
+        top: 0;
       }
     }
+    
     @media only screen and (min-width: 768px) {
       margin-bottom: 1.5em;
       padding-bottom: 1em;
       background: $img-border bottom left repeat-x;
     }
   }
+  
   h2 {
     padding-top: 0.8em;
     background: $img-border top left repeat-x;
   }
-  .entry-content & h2:first-child, header + h2 { padding-top: 0; }
-  h2:first-child, header + h2 { background: none; }
+  
+  .entry-content & h2:first-child, header + h2 {
+    padding-top: 0;
+  }
+  
+  h2:first-child, header + h2 {
+    background: none;
+  }
+  
   .feature {
     padding-top: .5em;
     margin-bottom: 1em;
     padding-bottom: 1em;
     background: $img-border bottom left repeat-x;
-    font-size: 2.0em; font-style: italic;
+    font-size: 2.0em;
+    font-style: italic;
     line-height: 1.3em;
   }
+  
   img, video, .flash-video {
-    @extend .flex-content;
-    @extend .basic-alignment;
-    @include shadow-box;
+    max-width: 100%; // Replaces .flex-content functionality
+    height: auto;
+    float: left; // Replaces .basic-alignment functionality
+    margin-right: 1.5em;
+    margin-bottom: .8em;
+    box-shadow: rgba(#000, .15) 0 1px 4px; // Replaces .shadow-box functionality
+    border: #fff .5em solid;
+    border-radius: .3em;
   }
-  video, .flash-video { margin: 0 auto 1.5em; }
-  video { display: block; width: 100%; }
+  
+  video, .flash-video {
+    margin: 0 auto 1.5em;
+  }
+  
+  video {
+    display: block;
+    width: 100%;
+  }
+  
   .flash-video {
     > div {
       position: relative;
@@ -58,6 +91,7 @@ article {
       padding-top: 1px;
       height: 0;
       overflow: hidden;
+      
       iframe, object, embed {
         position: absolute;
         top: 0;
@@ -67,35 +101,55 @@ article {
       }
     }
   }
+  
   > footer {
     padding-bottom: 2.5em;
     margin-top: 2em;
-    @extend .sans;
+    font-family: $sans; // Replaces .sans functionality
+    
     p.meta {
       margin-bottom: .8em;
       font-size: .85em;
       clear: both;
       overflow: hidden;
     }
+    
     .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
-      @extend .separator;
+      content: "\2022 ";
+      padding: 0 .4em 0 .2em;
+      display: inline-block; // Replaces .separator functionality
     }
   }
-
 }
+
 article + article {
   .blog-index & {
     background: $img-border top left repeat-x;
   }
 }
+
 #content .blog-index {
   padding: { top: 0; bottom: 0; }
-  article { padding-top: 2em; }
-  article header { background: none; padding-bottom: 0; }
+  
+  article {
+    padding-top: 2em;
+  }
+  
+  article header {
+    background: none;
+    padding-bottom: 0;
+  }
+  
   article h1 {
     font-size: 2.2em;
-    a { color: inherit; &:hover { color: $link-color-hover; } }
+    a {
+      color: inherit;
+      &:hover {
+        color: $link-color-hover;
+      }
+    }
   }
+  
   a[rel=full-article] {
     background: darken($main-bg, 5);
     display: inline-block;
@@ -103,16 +157,17 @@ article + article {
     margin-right: .5em;
     text-decoration: none;
     color: mix($text-color, $text-color-light);
-    @extend .serif;
-    @include transition(background-color .5s);
+    font-family: serif; // Replaces .serif functionality
+    transition: background-color .5s; // Replaces Compass transition mixin
     &:hover {
       background: $link-color-hover;
       text-shadow: none;
       color: $main-bg;
     }
   }
+  
   footer {
-    @extend .sans;
+    font-family: $sans; // Replaces .sans functionality
     margin-top: 1em;
   }
 }
@@ -128,15 +183,31 @@ article + article {
   font-size: .95em;
   position: relative;
   background: $img-border top left repeat-x;
-  padding: {top: 1.5em; bottom: 1.5em;}
+  padding: { top: 1.5em; bottom: 1.5em; }
+  
   a {
     text-decoration: none;
     color: $text-color-light;
-    &.prev { position: absolute; left: 0; }
-    &.next { position: absolute; right: 0; }
-    &:hover { color: $link-color-hover; }
+    
+    &.prev {
+      position: absolute;
+      left: 0;
+    }
+    
+    &.next {
+      position: absolute;
+      right: 0;
+    }
+    
+    &:hover {
+      color: $link-color-hover;
+    }
+    
     &[href*=archive] {
-      &:before, &:after { content: '\2014'; padding: 0 .3em; }
+      &:before, &:after {
+        content: '\2014';
+        padding: 0 .3em;
+      }
     }
   }
 }
