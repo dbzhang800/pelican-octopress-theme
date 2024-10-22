@@ -5,12 +5,12 @@
     font-size: 13px;
     line-height: 1.45em;
     @if $solarized == light {
-      background: lighten($base03, 1) $noise-bg !important;
+      //background: lighten($base03, 1) $noise-bg !important;
       border-right: 1px solid darken($base02, 2) !important;
       box-shadow: 0 0 0 1px lighten($base03, 2) inset; // Replaces Compass box-shadow
       text-shadow: lighten($base02, 2) 0 -1px;
     } @else {
-      background: $base02 $noise-bg !important;
+      //background: $base02 $noise-bg !important;
       border-right: 1px solid darken($base03, 2) !important;
       box-shadow: 0 0 0 1px lighten($base02, 2) inset; // Replaces Compass box-shadow
       text-shadow: darken($base02, 10) 0 -1px;
@@ -49,7 +49,7 @@ html .gist .gist-file {
         overflow: auto;
         padding: .8em !important;
         line-height: 1.45em;
-        background: $base03 $noise-bg !important;
+        //background: $base03 $noise-bg !important;
         color: $base1 !important;
       }
     }
@@ -244,7 +244,7 @@ pre, .highlight, .gist-highlight {
 
 .highlight code {
   font-family: $mono !important; // Replaces .pre-code
-  background: #000;
+  //background: #000;
 }
 
 figure.code {
