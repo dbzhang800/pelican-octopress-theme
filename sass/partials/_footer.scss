@@ -1,8 +1,9 @@
+@use "sass:color";
 body > footer {
   font-family: Arial, sans-serif; // Replaces @extend .sans
   font-size: .8em;
   color: $footer-color;
-  text-shadow: lighten($footer-bg, 5) 0 1px;
+  text-shadow: color.adjust($footer-bg, $lightness: 5) 0 1px;
   background-color: $footer-bg;
   
   background: linear-gradient(to bottom, $footer-bg-front, $footer-bg-back); // Replaces @include background

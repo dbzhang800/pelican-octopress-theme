@@ -1,3 +1,4 @@
+@use "sass:color";
 $base03:          #002b36 !default; //darkest blue
 $base02:          #073642 !default; //dark blue
 $base01:          #586e75 !default; //darkest gray
@@ -40,7 +41,7 @@ $solarized: dark !default;
 
 /* non highlighted code colors */
 $pre-bg: $base03 !default;
-$pre-border: darken($base02, 5) !default;
+$pre-border: color.adjust($base02, $lightness: -5) !default;
 $pre-color: $base1 !default;
 
 

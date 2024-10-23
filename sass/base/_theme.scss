@@ -1,11 +1,12 @@
+@use "sass:color";
 $noise-bg: url('../images/noise.png') top left !default; // Replaced image-url with standard url()
 $img-border: url('../images/dotted-border.png'); // Replaced inline-image with standard url()
 
 // Main Link Colors
-$link-color: lighten(#165b94, 3) !default;
-$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
-$link-color-visited: adjust-color($link-color, $hue: 80, $lightness: -4) !default;
-$link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
+$link-color: color.adjust(#165b94, $lightness: 3) !default;
+$link-color-hover: color.adjust($link-color, $lightness: 10, $saturation: 25) !default;
+$link-color-visited: color.adjust($link-color, $hue: 80, $lightness: -4) !default;
+$link-color-active: color.adjust($link-color-hover, $lightness: -15) !default;
 
 // Main Section Colors
 $main-bg: #f8f8f8 !default;
@@ -13,7 +14,7 @@ $page-bg: #252525 !default;
 $article-border: #eeeeee !default;
 
 $header-bg: #333 !default;
-$header-border: lighten($header-bg, 15) !default;
+$header-border: color.adjust($header-bg, $lightness: 15) !default;
 $title-color: #f2f2f2 !default;
 $subtitle-color: #aaa !default;
 
@@ -24,39 +25,39 @@ $type-border: #ddd !default;
 /* Navigation */
 $nav-bg: #ccc !default;
 $nav-bg-front: url('../images/noise.png') !default; // Replaced image-url with standard url()
-$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)) !default;
-$nav-color: darken($nav-bg, 38) !default;
-$nav-color-hover: darken($nav-color, 25) !default;
-$nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
-$nav-border: darken($nav-bg, 10) !default;
-$nav-border-top: lighten($nav-bg, 15) !default;
-$nav-border-bottom: darken($nav-bg, 25) !default;
-$nav-border-left: darken($nav-bg, 11) !default;
-$nav-border-right: lighten($nav-bg, 7) !default;
+$nav-bg-back: linear-gradient(color.adjust($nav-bg, $lightness: 8), $nav-bg, color.adjust($nav-bg, $lightness: -11)) !default;
+$nav-color: color.adjust($nav-bg, $lightness: -38) !default;
+$nav-color-hover: color.adjust($nav-color, $lightness: -25) !default;
+$nav-placeholder: color.adjust(color.adjust($nav-bg, $lightness: -10), $saturation: -15) !default;
+$nav-border: color.adjust($nav-bg, $lightness: -10) !default;
+$nav-border-top: color.adjust($nav-bg, $lightness: 15) !default;
+$nav-border-bottom: color.adjust($nav-bg, $lightness: -25) !default;
+$nav-border-left: color.adjust($nav-bg, $lightness: -11) !default;
+$nav-border-right: color.adjust($nav-bg, $lightness: 7) !default;
 
 /* Sidebar colors */
 $sidebar-bg: #f2f2f2 !default;
 $sidebar-link-color: $link-color !default;
 $sidebar-link-color-hover: $link-color-hover !default;
 $sidebar-link-color-active: $link-color-active !default;
-$sidebar-color: change-color(mix($text-color, $sidebar-bg, 80), $hue: hue($sidebar-bg), $saturation: saturation($sidebar-bg)/2) !default;
-$sidebar-border: desaturate(darken($sidebar-bg, 7), 10) !default;
-$sidebar-border-hover: darken($sidebar-bg, 7) !default;
-$sidebar-link-color-subdued: lighten($sidebar-color, 20) !default;
+$sidebar-color: color.change(color.mix($text-color, $sidebar-bg, 80), $hue: color.hue($sidebar-bg), $saturation: color.saturation($sidebar-bg)/2) !default;
+$sidebar-border: color.adjust(color.adjust($sidebar-bg, $lightness: -7), $saturation: -10) !default;
+$sidebar-border-hover: color.adjust($sidebar-bg, $lightness: -7) !default;
+$sidebar-link-color-subdued: color.adjust($sidebar-color, $lightness: 20) !default;
 $sidebar-link-color-subdued-hover: $sidebar-link-color-hover !default;
-$twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
+$twitter-status-link: color.adjust($sidebar-link-color-subdued, $lightness: 15) !default;
 
 $footer-color: #888 !default;
 $footer-bg: #ccc !default;
 $footer-bg-front: url('../images/noise.png') !default; // Replaced image-url with standard url()
-$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11)) !default;
-$footer-color: darken($footer-bg, 38) !default;
-$footer-color-hover: darken($footer-color, 10) !default;
-$footer-border-top: lighten($footer-bg, 15) !default;
-$footer-border-bottom: darken($footer-bg, 15) !default;
-$footer-link-color: darken($footer-bg, 38) !default;
-$footer-link-color-hover: darken($footer-color, 25) !default;
-$page-border-bottom: darken($footer-bg, 5) !default;
+$footer-bg-back: linear-gradient(color.adjust($footer-bg, $lightness: 8), $footer-bg, color.adjust($footer-bg, $lightness: -11)) !default;
+$footer-color: color.adjust($footer-bg, $lightness: -38) !default;
+$footer-color-hover: color.adjust($footer-color, $lightness: -10) !default;
+$footer-border-top: color.adjust($footer-bg, $lightness: 15) !default;
+$footer-border-bottom: color.adjust($footer-bg, $lightness: -15) !default;
+$footer-link-color: color.adjust($footer-bg, $lightness: -38) !default;
+$footer-link-color-hover: color.adjust($footer-color, $lightness: -25) !default;
+$page-border-bottom: color.adjust($footer-bg, $lightness: -5) !default;
 
 /* Core theme application */
 

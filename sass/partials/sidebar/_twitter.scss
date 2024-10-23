@@ -1,7 +1,8 @@
+@use "sass:color";
 #tweets {
   .loading {
     background: url('../images/bird_32_gray.png') no-repeat center .5em; // Replaces inline-image
-    color: darken($sidebar-bg, 18);
+    color: color.adjust($sidebar-bg, $lightness: -18);
     text-shadow: $main-bg 0 1px;
     text-align: center;
     padding: 2.5em 0 .5em;

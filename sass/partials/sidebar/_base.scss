@@ -1,11 +1,12 @@
+@use "sass:color";
 .side-shadow-border {
-  box-shadow: lighten($sidebar-bg, 5) 0 1px; // Replaces @include box-shadow
+  box-shadow: color.adjust($sidebar-bg, $lightness: 5) 0 1px; // Replaces @include box-shadow
 }
 
 aside.sidebar {
   overflow: hidden;
   color: $sidebar-color;
-  text-shadow: lighten($sidebar-bg, 8) 0 1px;
+  text-shadow: color.adjust($sidebar-bg, $lightness: 8) 0 1px;
 
   a {
     word-wrap: break-word; // Replaces @extend .force-wrap
@@ -21,7 +22,7 @@ aside.sidebar {
       margin: 1.5em 0 0;
       padding-bottom: .2em;
       border-bottom: 1px solid $sidebar-border;
-      box-shadow: lighten($sidebar-bg, 5) 0 1px; // Replaces @extend .side-shadow-border
+      box-shadow: color.adjust($sidebar-bg, $lightness: 5) 0 1px; // Replaces @extend .side-shadow-border
 
       + p {
         padding-top: .4em;
@@ -46,7 +47,7 @@ aside.sidebar {
     padding: .5em 0;
     margin: 0;
     border-bottom: 1px solid $sidebar-border;
-    box-shadow: lighten($sidebar-bg, 5) 0 1px; // Replaces @extend .side-shadow-border
+    box-shadow: color.adjust($sidebar-bg, $lightness: 5) 0 1px; // Replaces @extend .side-shadow-border
 
     p:last-child {
       margin-bottom: 0;
@@ -84,12 +85,12 @@ aside.sidebar {
     bottom: 0;
     display: inline-block;
     text-decoration: none;
-    color: mix($text-color-light, $sidebar-bg);
+    color: color.mix($text-color-light, $sidebar-bg);
     width: 9px;
     cursor: pointer;
 
     &:hover {
-      background: mix($sidebar-border, $sidebar-bg);
+      background: color.mix($sidebar-border, $sidebar-bg);
       background: linear-gradient(to right, rgba($sidebar-border, .5), rgba($sidebar-border, 0)); // Replaces @include background
     }
 
@@ -116,7 +117,7 @@ aside.sidebar {
       width: 19px;
 
       &:hover {
-        background: mix($sidebar-border, $sidebar-bg);
+        background: color.mix($sidebar-border, $sidebar-bg);
       }
 
       &:after {

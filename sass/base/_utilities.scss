@@ -1,3 +1,4 @@
+@use "sass:color";
 @mixin mask-image($img, $repeat: no-repeat) {
   mask-image: url($img); // 替换 Compass 的 experimental(mask-image)
   mask-repeat: $repeat;
@@ -33,7 +34,7 @@
 }
 
 @function text-color($color, $dark: dark, $light: light) {
-  $text-color: ( (red($color) * 299) + (green($color) * 587) + (blue($color) * 114) ) / 1000;
+  $text-color: ( (color.red($color) * 299) + (color.green($color) * 587) + (color.blue($color) * 114) ) / 1000;
   $text-color: if($text-color >= 150, $dark, $light);
   @return $text-color;
 }
