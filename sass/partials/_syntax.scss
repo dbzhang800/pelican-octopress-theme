@@ -1,5 +1,12 @@
+@mixin border-top-radius($radius) {
+  border-top-left-radius: $radius;
+  border-top-right-radius: $radius;
+}
+
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
-  table td.code { width: 100%; }
+  table td.code {
+    width: 100%;
+  }
   .line-numbers {
     text-align: right;
     font-size: 13px;
@@ -7,60 +14,55 @@
     @if $solarized == light {
       //background: lighten($base03, 1) $noise-bg !important;
       border-right: 1px solid darken($base02, 2) !important;
-      box-shadow: 0 0 0 1px lighten($base03, 2) inset; // Replaces Compass box-shadow
+      box-shadow: lighten($base03, 2) -1px 0 inset;
       text-shadow: lighten($base02, 2) 0 -1px;
     } @else {
       //background: $base02 $noise-bg !important;
       border-right: 1px solid darken($base03, 2) !important;
-      box-shadow: 0 0 0 1px lighten($base02, 2) inset; // Replaces Compass box-shadow
+      box-shadow: lighten($base02, 2) -1px 0 inset;
       text-shadow: darken($base02, 10) 0 -1px;
     }
-    span { color: $base01 !important; }
+    span {
+      color: $base01 !important;
+    }
     padding: .8em !important;
-    border-radius: 0; // Replaces Compass border-radius
+    border-radius: 0;
   }
   border: 1px solid $pre-border !important;
 }
 
 figure.code, .gist-file, pre {
-  box-shadow: rgba(#000, .06) 0 0 10px; // Replaces Compass box-shadow
-  .highlight pre { box-shadow: none; } // Replaces Compass box-shadow
+  box-shadow: rgba(#000, .06) 0 0 10px;
+  .highlight pre {
+    box-shadow: none;
+  }
 }
 
 html .gist .gist-file {
   margin-bottom: 1.8em;
   position: relative;
   border: none;
-  padding-top: 32px !important; // Replaces image-height("code_bg.png")
-  
+  /* Replace image-height("code_bg.png") with the actual image height (e.g., 100px) */
+  padding-top: 100px !important; /* Replace 100px with the actual image height */
   table {
     width: 789px;
     margin-bottom: 0;
   }
-  
   .gist-syntax {
     border-bottom: 0 !important;
     background: none !important;
-    
     .gist-highlight {
       background: $base03 !important;
       pre {
-        font-family: $mono !important; // Replaces .pre-code
-        overflow: auto;
-        padding: .8em !important;
-        line-height: 1.45em;
-        //background: $base03 $noise-bg !important;
-        color: $base1 !important;
+        @extend .pre-code;
       }
     }
   }
-  
   .gist-meta {
     padding: .6em 0.8em;
     border: 1px solid lighten($base02, 2) !important;
     color: $base01;
     font-size: .7em !important;
-    
     @if $solarized == light {
       background: lighten($base03, 2) $noise-bg;
       border: 1px solid $pre-border !important;
@@ -68,100 +70,68 @@ html .gist .gist-file {
     } @else {
       background: $base02 $noise-bg;
     }
-    
-    font-family: "Helvetica Neue", Arial, sans-serif; // Replaces .sans
+    @extend .sans;
     line-height: 1.5em;
-    
     a {
       color: mix($base1, $base01) !important;
-      text-decoration: none; // Replaces hover-link
+      //@include hover-link;
       &:hover {
         color: $base1 !important;
       }
     }
-    
     a[href*='#file'] {
       position: absolute;
       top: 0;
       left: 0;
       right: -10px;
       color: #474747 !important;
-      text-align: center;
-      font-size: 13px;
-      line-height: 2em;
-      text-shadow: #cbcccc 0 1px 0;
-      color: #474747;
-      font-weight: normal;
-      background: #aaaaaa url("../images/code_bg.png") top repeat-x; // Replaces image-url
-      border: 1px solid #565656;
-      border-top-color: #cbcbcb;
-      border-left-color: #a5a5a5;
-      border-right-color: #a5a5a5;
-      border-bottom: 0;
+      @extend .code-title;
       &:hover {
         color: $link-color !important;
       }
     }
-    
     a[href*=raw] {
-      position: absolute;
-      right: .8em;
-      color: #666 !important;
-      z-index: 1;
-      font-size: 13px;
-      text-shadow: #cbcccc 0 1px 0;
-      padding-left: 3em;
-      text-decoration: none; // Replaces hover-link
-      &:hover {
-        color: $link-color !important;
-      }
+      @extend .download-source;
+      top: .4em;
     }
   }
 }
 
 pre {
-  background: $pre-bg $noise-bg;
-  border-radius: .4em; // Replaces Compass border-radius
-  font-family: $mono !important; // Replaces .mono
+  // background: $pre-bg $noise-bg;
+  border-radius: .4em;
+  @extend .mono;
   border: 1px solid $pre-border;
   line-height: 1.45em;
   font-size: 13px;
   margin-bottom: 2.1em;
-  padding: .8em 1em;
+  padding: 0 1em;
   color: $pre-color;
   overflow: auto;
 }
 
 h3.filename {
-  text-align: center;
-  font-size: 13px;
-  line-height: 2em;
-  text-shadow: #cbcccc 0 1px 0;
-  color: #474747;
-  font-weight: normal;
-  background: #aaaaaa url("../images/code_bg.png") top repeat-x; // Replaces image-url
-  border: 1px solid #565656;
-  border-top-color: #cbcbcb;
-  border-left-color: #a5a5a5;
-  border-right-color: #a5a5a5;
-  border-bottom: 0;
+  @extend .code-title;
+  + pre {
+    @include border-top-radius(0px);
+  }
 }
 
 p, li {
   code, tt {
-    font-family: $mono !important; // Replaces .mono
+    @extend .mono;
     display: inline-block;
-    white-space: nowrap; // Replaces no-wrap
+    white-space: nowrap;
     background: #fff;
     font-size: .8em;
     line-height: 1.5em;
     color: #555;
     border: 1px solid #ddd;
-    border-radius: .4em; // Replaces Compass border-radius
+    border-radius: .4em;
     padding: 0 .3em;
     margin: -1px 0;
   }
-  pre code { 
+  pre code {
     font-size: 1em !important;
     background: none;
     border: none;
@@ -169,81 +139,141 @@ p, li {
 }
 
 .pre-code {
-  ::selection {
-    background-color: adjust-color($base03, $lightness: 23%, $saturation: -65%);
-    text-shadow: $base03 0 1px;
-  }
+  @include selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text-shadow: $base03 0 1px);
   font-family: $mono !important;
-  overflow: auto;
+  overflow: scroll;
+  overflow-y: hidden;
   display: block;
-  padding: .8em !important;
+  // padding: .8em !important;
+  overflow-x: auto;
   line-height: 1.45em;
   background: $base03 $noise-bg !important;
   color: $base1 !important;
-  span { color: $base1 !important; }
-  span { font-style: normal !important; font-weight: normal !important; }
+  span {
+    color: $base1 !important;
+  }
+  span {
+    font-style: normal !important;
+    font-weight: normal !important;
+  }
 
-  // Syntax highlighting rules
-  .c, .cm, .cp, .c1, .cs { color: $base01 !important; font-style: italic !important; }
-  .cs { font-weight: bold !important; }
-  .err { color: $solar-red !important; background: none !important; }
-  .k { color: $solar-orange !important; }
-  .o, .p { color: $base1 !important; font-weight: bold !important; }
-  .ow { color: $solar-cyan !important; font-weight: bold !important; }
-  .gd { color: $base1 !important; background-color: mix($solar-red, $base03, 25%) !important; }
-  .gd .x { color: $base1 !important; background-color: mix($solar-red, $base03, 35%) !important; }
-  .ge { color: $base1 !important; font-style: italic !important; }
-  .gh { color: $base01 !important; }
-  .gi { color: $base1 !important; background-color: mix($solar-green, $base03, 20%) !important; }
-  .gi .x { color: $base1 !important; background-color: mix($solar-green, $base03, 40%) !important; }
-  .gs { color: $base1 !important; font-weight: bold !important; }
-  .gu { color: $solar-violet !important; }
-  .kc { color: $solar-green !important; font-weight: bold !important; }
-  .kd { color: $solar-blue !important; }
-  .kp { color: $solar-orange !important; font-weight: bold !important; }
-  .kr { color: $solar-magenta !important; font-weight: bold !important; }
-  .kt { color: $solar-cyan !important; }
-  .n, .na, .nb, .nc, .no, .nl, .ne, .nf, .nn, .nt, .nx, .vg, .vi, .nv { color: $solar-blue !important; }
-  .mf, .m, .mh, .mi { color: $solar-cyan !important; }
-  .s, .sd, .s2, .se, .si, .sr, .s1 { color: $solar-cyan !important; }
-  
+  .c, .cm, .cp, .c1, .cs {
+    color: $base01 !important;
+    font-style: italic !important;
+  } /* Comment */
+  .err {
+    color: $solar-red !important;
+    background: none !important;
+  } /* Error */
+  .k {
+    color: $solar-orange !important;
+  } /* Keyword */
+  .o {
+    color: $base1 !important;
+    font-weight: bold !important;
+  } /* Operator */
+  .p {
+    color: $base1 !important;
+  } /* Operator */
+  .ow {
+    color: $solar-cyan !important;
+    font-weight: bold !important;
+  } /* Operator.Word */
+  .gd, .gd .x {
+    color: $base1 !important;
+    background-color: mix($solar-red, $base03, 25%) !important;
+    display: inline-block;
+  } /* Generic.Deleted */
+  .ge {
+    color: $base1 !important;
+    font-style: italic !important;
+  } /* Generic.Emph */
+  .gh {
+    color: $base01 !important;
+  } /* Generic.Heading */
+  .gi, .gi .x {
+    color: $base1 !important;
+    background-color: mix($solar-green, $base03, 20%) !important;
+    display: inline-block;
+  } /* Generic.Inserted */
+  .gs {
+    color: $base1 !important;
+    font-weight: bold !important;
+  } /* Generic.Strong */
+  .gu {
+    color: $solar-violet !important;
+  } /* Generic.Subheading */
+  .kc {
+    color: $solar-green !important;
+    font-weight: bold !important;
+  } /* Keyword.Constant */
+  .kd {
+    color: $solar-blue !important;
+  } /* Keyword.Declaration */
+  .kp {
+    color: $solar-orange !important;
+    font-weight: bold !important;
+  } /* Keyword.Pseudo */
+  .kr {
+    color: $solar-magenta !important;
+    font-weight: bold !important;
+  } /* Keyword.Reserved */
+  .kt {
+    color: $solar-cyan !important;
+  } /* Keyword.Type */
+  .n, .na, .nb, .nc, .nl, .ne, .nf, .nn, .nt, .nx, .vg, .vi, .nv {
+    color: $solar-blue !important;
+  } /* Name */
+  .no {
+    color: $solar-yellow !important;
+  } /* Name.Constant */
+  .mf, .m, .mh, .mi, .s, .sd, .s2, .sr, .s1 {
+    color: $solar-cyan !important;
+  } /* Literal.Number / String */
   div {
-    .gd, .gi { display: inline-block; width: 100%; }
+    .gd, .gd .x, .gi, .gi .x {
+      display: inline-block;
+      width: 100%;
+    }
   }
 }
 
 .highlight, .gist-highlight {
   pre {
-    font-family: $mono !important; // Replaces .pre-code
+    @extend .pre-code;
     background: none;
-    border-radius: 0; // Replaces Compass border-radius
+    border-radius: none;
     border: none;
     padding: 0;
     margin-bottom: 0;
   }
   margin-bottom: 1.8em;
   background: $base03;
+  overflow-y: hidden;
   overflow-x: auto;
 }
 
 $solar-scroll-bg: rgba(#fff, .15);
 $solar-scroll-thumb: rgba(#fff, .2);
-
 @if $solarized == light {
   $solar-scroll-bg: rgba(#000, .15);
   $solar-scroll-thumb: rgba(#000, .15);
 }
 
 pre, .highlight, .gist-highlight {
-  &::-webkit-scrollbar { height: .5em; background: $solar-scroll-bg; }
+  &::-webkit-scrollbar {
+    height: .5em;
+    background: $solar-scroll-bg;
+  }
   &::-webkit-scrollbar-thumb:horizontal {
     background: $solar-scroll-thumb;
+    -webkit-border-radius: 4px;
     border-radius: 4px;
   }
 }
 
 .highlight code {
-  font-family: $mono !important; // Replaces .pre-code
+  @extend .pre-code;
   //background: #000;
 }
 
@@ -252,37 +282,18 @@ figure.code {
   padding: 0;
   border: 0;
   margin-bottom: 1.5em;
-  
-  pre { margin-bottom: 0; }
-  
+  pre {
+    margin-bottom: 0;
+  }
   figcaption {
     position: relative;
-    text-align: center;
-    font-size: 13px;
-    line-height: 2em;
-    text-shadow: #cbcccc 0 1px 0;
-    color: #474747;
-    font-weight: normal;
-    background: #aaaaaa url("../images/code_bg.png") top repeat-x;
-    border: 1px solid #565656;
-    border-top-color: #cbcbcb;
-    border-left-color: #a5a5a5;
-    border-right-color: #a5a5a5;
-    border-bottom: 0;
-    
+    @extend .code-title;
     a {
-      position: absolute;
-      right: .8em;
-      color: #666 !important;
-      z-index: 1;
-      font-size: 13px;
-      text-shadow: #cbcccc 0 1px 0;
-      padding-left: 3em;
-      text-decoration: none; // Replaces Compass hover-link
-      &:hover {
-        color: $link-color !important;
-      }
+      @extend .download-source;
     }
+  }
+  .highlight {
+    margin-bottom: 0;
   }
 }
 
@@ -293,25 +304,24 @@ figure.code {
   text-shadow: #cbcccc 0 1px 0;
   color: #474747;
   font-weight: normal;
-  background: #aaaaaa url("../images/code_bg.png") top repeat-x;
+  margin-bottom: 0;
+  @include border-top-radius(5px);
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
+  background: #aaaaaa url("../images/code_bg.png") top repeat-x; /* Replace with correct path */
   border: 1px solid #565656;
   border-top-color: #cbcbcb;
   border-left-color: #a5a5a5;
   border-right-color: #a5a5a5;
   border-bottom: 0;
-  border-radius: 5px 5px 0 0; // Replaces Compass border-top-radius
 }
 
 .download-source {
   position: absolute;
   right: .8em;
+  //@include hover-link;
   color: #666 !important;
   z-index: 1;
   font-size: 13px;
   text-shadow: #cbcccc 0 1px 0;
   padding-left: 3em;
-  text-decoration: none; // Replaces Compass hover-link
-  &:hover {
-    color: $link-color !important;
-  }
 }
