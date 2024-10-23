@@ -1,13 +1,13 @@
 #tweets {
   .loading {
-    background: url('bird_32_gray.png') no-repeat center .5em; // Replaces inline-image
+    background: url('../images/bird_32_gray.png') no-repeat center .5em; // Replaces inline-image
     color: darken($sidebar-bg, 18);
     text-shadow: $main-bg 0 1px;
     text-align: center;
     padding: 2.5em 0 .5em;
 
     &.error {
-      background: url('bird_32_gray_fail.png') no-repeat center .5em; // Replaces inline-image
+      background: url('../images/bird_32_gray_fail.png') no-repeat center .5em; // Replaces inline-image
     }
   }
 
