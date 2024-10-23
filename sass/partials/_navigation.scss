@@ -61,6 +61,7 @@ body > nav {
     ul {
       display: flex; // 替换 Compass 的 horizontal-list
       padding-top: .15em;
+      margin-bottom: 0;
     }
     
     ul.subscription {
@@ -73,6 +74,7 @@ body > nav {
     
     ul li {
       margin: 0;
+      list-style-type: none;
     }
     
     a {
