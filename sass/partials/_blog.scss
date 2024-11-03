@@ -67,7 +67,7 @@ article {
   img, video, .flash-video {
     max-width: 100%; // Replaces .flex-content functionality
     height: auto;
-    float: left; // Replaces .basic-alignment functionality
+    // float: left; // Replaces .basic-alignment functionality
     margin-right: 1.5em;
     margin-bottom: .8em;
     box-shadow: rgba(#000, .15) 0 1px 4px; // Replaces .shadow-box functionality
