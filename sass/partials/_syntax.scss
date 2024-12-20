@@ -4,18 +4,11 @@
   border-top-right-radius: $radius;
 }
 
-.highlight, html .gist .gist-file .gist-syntax .gist-highlight {
+.highlight {
   table td.code {
     width: 100%;
   }
   border: 1px solid $pre-border !important;
-}
-
-figure.code, .gist-file, pre {
-  box-shadow: rgba(#000, .06) 0 0 10px;
-  .highlight pre {
-    box-shadow: none;
-  }
 }
 
 pre {
@@ -36,11 +29,11 @@ p, li {
     @extend .mono;
     display: inline-block;
     white-space: nowrap;
-    background: #fff;
+    // background: #fff;
     font-size: .8em;
     line-height: 1.5em;
     color: #555;
-    border: 1px solid #ddd;
+    // border: 1px solid #ddd;
     border-radius: .4em;
     padding: 0 .3em;
     margin: -1px 0;
@@ -152,10 +145,10 @@ p, li {
   }
 }
 
-.highlight, .gist-highlight {
+.highlight {
   pre {
     @extend .pre-code;
-    background: none;
+    background-color: none;
     border-radius: none;
     border: none;
     padding: 0;
@@ -166,65 +159,4 @@ p, li {
   // background: $base03;
   overflow-y: hidden;
   overflow-x: auto;
-}
-
-$solar-scroll-bg: rgba(#fff, .15);
-$solar-scroll-thumb: rgba(#fff, .2);
-@if $solarized == light {
-  $solar-scroll-bg: rgba(#000, .15);
-  $solar-scroll-thumb: rgba(#000, .15);
-}
-
-.highlight code {
-  @extend .pre-code;
-  //background: #000;
-}
-
-figure.code {
-  background: none;
-  padding: 0;
-  border: 0;
-  margin-bottom: 1.5em;
-  pre {
-    margin-bottom: 0;
-  }
-  figcaption {
-    position: relative;
-    @extend .code-title;
-    a {
-      @extend .download-source;
-    }
-  }
-  .highlight {
-    margin-bottom: 0;
-  }
-}
-
-.code-title {
-  text-align: center;
-  font-size: 13px;
-  line-height: 2em;
-  text-shadow: #cbcccc 0 1px 0;
-  color: #474747;
-  font-weight: normal;
-  margin-bottom: 0;
-  @include border-top-radius(5px);
-  font-family: "Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
-  // background: #aaaaaa url("../images/code_bg.png") top repeat-x; /* Replace with correct path */
-  border: 1px solid #565656;
-  border-top-color: #cbcbcb;
-  border-left-color: #a5a5a5;
-  border-right-color: #a5a5a5;
-  border-bottom: 0;
-}
-
-.download-source {
-  position: absolute;
-  right: .8em;
-  //@include hover-link;
-  color: #666 !important;
-  z-index: 1;
-  font-size: 13px;
-  text-shadow: #cbcccc 0 1px 0;
-  padding-left: 3em;
 }
