@@ -42,16 +42,16 @@ article {
   }
   
   h2 {
-    padding-top: 0.8em;
-    background: $img-border top left repeat-x;
+    padding-top: 0em;
+    // background: $img-border top left repeat-x;
+    padding-bottom: 0.3em;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #047307
   }
   
   .entry-content & h2:first-child, header + h2 {
     padding-top: 0;
-  }
-  
-  h2:first-child, header + h2 {
-    background: none;
   }
   
   .feature {
