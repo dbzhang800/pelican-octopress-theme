@@ -12,10 +12,6 @@
   <meta name="description" content="{{ article.description }}" />
   {% endif %}
 
-  {% if FEED_FEEDBURNER %}
-  <link href="http://feeds.feedburner.com/{{ FEED_FEEDBURNER }}" type="application/rss+xml" rel="alternate"
-        title="{{ SITENAME }} RSS Feed" />
-  {% else %}
   {% if FEED_ATOM %}
   <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate"
         title="{{ SITENAME }} Atom Feed" />
@@ -23,7 +19,6 @@
   {% if FEED_RSS %}
   <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate"
         title="{{ SITENAME }} RSS Feed" />
-  {% endif %}
   {% endif %}
 
   {% if EXTRA_HEADER %}
