@@ -49,9 +49,6 @@ table {
   border-spacing: 0;
 }
 
-/* To use the light Solarized highlighting theme uncomment the following line */
-/* If you want to tweak the Solarized colors you can do that here */
-/* Non highlighted code colors */
 /* non highlighted code colors */
 /* Navigation */
 /* Sidebar colors */
@@ -608,6 +605,11 @@ body.sidebar-footer .toggle-sidebar {
     padding-right: 55px;
   }
 }
+@media only screen and (min-width: 768px) {
+  ul, ol {
+    margin-left: 0;
+  }
+}
 body > header {
   background: #333;
 }
@@ -677,6 +679,9 @@ body > nav ul {
   padding-top: 0;
   display: none;
 }
+body > nav ul li.active a {
+  font-weight: bold;
+}
 @media only screen and (min-width: 550px) {
   body > nav {
     font-size: 0.9em;
@@ -731,12 +736,6 @@ body > nav ul {
     font-size: 0.95em;
     line-height: 1.2em;
   }
-  body > nav ul[data-subscription$=email] + form {
-    width: 97px;
-  }
-  body > nav ul[data-subscription$=email] + form .search {
-    width: 91%;
-  }
   body > nav fieldset.mobile-nav {
     display: none;
   }
@@ -748,55 +747,11 @@ body > nav ul {
   body > nav form {
     width: 215px;
   }
-  body > nav ul[data-subscription$=email] + form {
-    width: 147px;
-  }
 }
 
 .no-placeholder body > nav .search {
   background: rgb(242.25, 242.25, 242.25) url("../images/search.png") 0.3em 0.25em no-repeat;
   text-indent: 1.3em;
-}
-
-@media only screen and (min-width: 550px) {
-  .maskImage body > nav ul[data-subscription$=email] + form {
-    width: 123px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .maskImage body > nav ul[data-subscription$=email] + form {
-    width: 173px;
-  }
-}
-.maskImage ul.subscription {
-  position: relative;
-  top: 0.2em;
-}
-.maskImage ul.subscription li, .maskImage ul.subscription a {
-  border: 0;
-  padding: 0;
-}
-.maskImage a[rel=subscribe-rss] {
-  position: relative;
-  top: 0px;
-  text-indent: -999999em;
-  background-color: rgb(221.85, 221.85, 221.85);
-  border: 0;
-  padding: 0;
-  background-image: url("../images/rss.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.maskImage a[rel=subscribe-email] {
-  position: relative;
-  top: 0px;
-  text-indent: -999999em;
-  background-color: rgb(221.85, 221.85, 221.85);
-  border: 0;
-  padding: 0;
-  background-image: url("../images/email.png");
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 article {
@@ -1520,21 +1475,6 @@ body > footer p:last-child {
   border: none;
 }
 
-dl {
-  margin: 0 0 1.5em 0;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 1.5em;
-}
-
-/* To use the light Solarized highlighting theme uncomment the following line */
-/* If you want to tweak the Solarized colors you can do that here */
-/* Non highlighted code colors */
 /* non highlighted code colors */
 /* Navigation */
 /* Sidebar colors */
@@ -2091,6 +2031,11 @@ body.sidebar-footer .toggle-sidebar {
     padding-right: 55px;
   }
 }
+@media only screen and (min-width: 768px) {
+  ul, ol {
+    margin-left: 0;
+  }
+}
 body > header {
   background: #333;
 }
@@ -2160,6 +2105,9 @@ body > nav ul {
   padding-top: 0;
   display: none;
 }
+body > nav ul li.active a {
+  font-weight: bold;
+}
 @media only screen and (min-width: 550px) {
   body > nav {
     font-size: 0.9em;
@@ -2214,12 +2162,6 @@ body > nav ul {
     font-size: 0.95em;
     line-height: 1.2em;
   }
-  body > nav ul[data-subscription$=email] + form {
-    width: 97px;
-  }
-  body > nav ul[data-subscription$=email] + form .search {
-    width: 91%;
-  }
   body > nav fieldset.mobile-nav {
     display: none;
   }
@@ -2231,55 +2173,11 @@ body > nav ul {
   body > nav form {
     width: 215px;
   }
-  body > nav ul[data-subscription$=email] + form {
-    width: 147px;
-  }
 }
 
 .no-placeholder body > nav .search {
   background: rgb(242.25, 242.25, 242.25) url("../images/search.png") 0.3em 0.25em no-repeat;
   text-indent: 1.3em;
-}
-
-@media only screen and (min-width: 550px) {
-  .maskImage body > nav ul[data-subscription$=email] + form {
-    width: 123px;
-  }
-}
-@media only screen and (min-width: 992px) {
-  .maskImage body > nav ul[data-subscription$=email] + form {
-    width: 173px;
-  }
-}
-.maskImage ul.subscription {
-  position: relative;
-  top: 0.2em;
-}
-.maskImage ul.subscription li, .maskImage ul.subscription a {
-  border: 0;
-  padding: 0;
-}
-.maskImage a[rel=subscribe-rss] {
-  position: relative;
-  top: 0px;
-  text-indent: -999999em;
-  background-color: rgb(221.85, 221.85, 221.85);
-  border: 0;
-  padding: 0;
-  background-image: url("../images/rss.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.maskImage a[rel=subscribe-email] {
-  position: relative;
-  top: 0px;
-  text-indent: -999999em;
-  background-color: rgb(221.85, 221.85, 221.85);
-  border: 0;
-  padding: 0;
-  background-image: url("../images/email.png");
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 article {
@@ -3001,18 +2899,6 @@ body > footer p:last-child {
 .entry-content table td.code {
   background-color: #F0ECE6;
   border: none;
-}
-
-dl {
-  margin: 0 0 1.5em 0;
-}
-
-dt {
-  font-weight: bold;
-}
-
-dd {
-  margin-left: 1.5em;
 }
 
 /*# sourceMappingURL=main.css.map */
