@@ -2,7 +2,6 @@
 body > nav {
   position: relative;
   background-color: $nav-bg;
-  background: linear-gradient($nav-bg-front, $nav-bg-back); // 替换 Compass 的 background
   border-top: 1px solid $nav-border-top;
   border-bottom: 1px solid $nav-border-bottom;
   padding-top: .35em;
@@ -10,8 +9,8 @@ body > nav {
   
   form {
     background-clip: padding-box; // 使用原生 CSS 属性
-    margin: 0;
-    padding: 0;
+    margin-top: 0;
+    padding-top: 0;
     
     .search {
       padding: .3em .5em 0;
@@ -53,6 +52,8 @@ body > nav {
   }
   
   ul {
+    margin-top : 0;
+    padding-top: 0;
     display: none;
   }
   
@@ -61,7 +62,6 @@ body > nav {
     
     ul {
       display: flex; // 替换 Compass 的 horizontal-list
-      padding-top: .15em;
       margin-bottom: 0;
     }
     
@@ -85,7 +85,7 @@ body > nav {
       text-shadow: color.adjust($nav-bg, $lightness: 12) 0 1px; // 使用原生 CSS 属性
       float: left;
       font-size: 1.1em;
-      padding: .1em 0;
+      padding: 0 0;
       line-height: 1.5em;
       
       &:hover {
