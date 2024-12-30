@@ -605,11 +605,6 @@ body.sidebar-footer .toggle-sidebar {
     padding-right: 55px;
   }
 }
-@media only screen and (min-width: 768px) {
-  ul, ol {
-    margin-left: 0;
-  }
-}
 body > header {
   background: #333;
 }
@@ -2029,11 +2024,6 @@ body.sidebar-footer .toggle-sidebar {
   .collapse-sidebar aside.sidebar {
     padding-left: 55px;
     padding-right: 55px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  ul, ol {
-    margin-left: 0;
   }
 }
 body > header {
